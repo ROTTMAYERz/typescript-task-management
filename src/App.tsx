@@ -4,11 +4,15 @@ import { Header, AddForm, Item } from './components';
 import { Task } from './interface/interface';
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(
-    JSON.parse(localStorage.getItem('tasks')) || []
-  );
-  const [title, setTitle] = useState<string | undefined>('');
+  const storedTasks = localStorage.getItem('tasks');
+  const initialTasks = storedTasks ? JSON.parse(storedTasks) : [];
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  // const [tasks, setTasks] = useState<Task[]>(
+  //   JSON.parse(localStorage.getItem('tasks')) || []
+  // );
+  const [title, setTitle] = useState<string>('');
   const [editId, setEditId] = useState<number | null>(null);
+  const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -22,7 +26,7 @@ function App() {
   const editTask = (id: number) => {
     setEditId(id);
     const editTask = tasks.find((value) => value.id === id);
-    setTitle(editTask?.title || '');
+    setTitle(editTask?.title ?? '');
   };
 
   const saveTask = (e: FormEvent) => {
@@ -50,8 +54,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
+    <div className={'App ' + theme}>
+      <Header theme={theme} setTheme={setTheme} />
       <div className="container">
         <AddForm
           title={title}

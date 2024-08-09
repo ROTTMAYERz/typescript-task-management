@@ -2,6 +2,18 @@
     min-height: 100vh;
 }
 
+.light {
+    background: white;
+    color: #000;
+    transition: all 500ms;
+}
+
+.dark {
+    background: #15202b;
+    color: white;
+    transition: all 500ms;
+}
+
 .container {
     background: #fff;
     padding: 1.2rem;
