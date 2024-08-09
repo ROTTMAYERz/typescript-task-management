@@ -4,4 +4,6 @@ export interface Task {
   }
 
 export type DeleteTask = (id: number) => void;
+
+export type EditTask = (id: number) => void;
   

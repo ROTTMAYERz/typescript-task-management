@@ -2,13 +2,14 @@ import { FormEvent } from 'react';
 import './AddForm.css';
 
 interface AddFormProps {
-  title: string;
+  title: string | undefined;
   setTitle: (title: string) => void;
   saveTask: (e: FormEvent) => void;
+  editId: number | null;
 }
 
 export default function AddForm(props: AddFormProps) {
-  const { title, setTitle, saveTask } = props;
+  const { title, setTitle, saveTask, editId } = props;
   return (
     <>
       <h2>แอพบริหารจัดการงาน</h2>
@@ -21,7 +22,7 @@ export default function AddForm(props: AddFormProps) {
             onChange={(e) => setTitle(e.target.value)}
           />
           <button type="submit" className="submit-btn">
-            เพิ่ม
+            {editId ? 'อัพเดต' : 'เพิ่ม'}
           </button>
         </div>
       </form>
