@@ -1,4 +1,5 @@
 import './Header.css';
+import { BsMoonStarsFill, BsSunFill } from 'react-icons/bs';
 
 interface HeaderProps {
   theme: string;
@@ -24,7 +25,7 @@ export default function Header(props: HeaderProps) {
       <div className="theme-container">
         <span>{theme === 'light' ? 'โหลดกลางวัน' : 'โหมดกลางคืน'}</span>
         <span className="icon" onClick={ToggleTheme}>
-          สลับ
+          {theme === 'light' ? <BsSunFill /> : <BsMoonStarsFill />}
         </span>
       </div>
     </header>

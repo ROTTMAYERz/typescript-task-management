@@ -15,9 +15,13 @@
 }
 
 .btn {
-    font-size: 1.2rem;
-    margin-left: 0.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
+    margin-top: 11px;
     color: #000;
-    padding: 0px 8px;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
 }

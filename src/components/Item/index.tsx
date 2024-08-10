@@ -1,5 +1,6 @@
 import './Item.css';
 import { Task, DeleteTask, EditTask } from '../../interface/interface';
+import { BiTrash, BiEdit } from 'react-icons/bi';
 
 interface ItemProps {
   data: Task;
@@ -13,12 +14,12 @@ export default function Item(props: ItemProps) {
     <div className="list-item">
       <p className="title">{data.title}</p>
       <div className="button-container">
-        <button className="btn" onClick={() => deltask(data.id)}>
-          ลบ
-        </button>
-        <button className="btn" onClick={() => edittask(data.id)}>
-          แก้ไข
-        </button>
+        <div>
+          <BiTrash className="btn" onClick={() => deltask(data.id)} />
+        </div>
+        <div>
+          <BiEdit className="btn" onClick={() => edittask(data.id)} />
+        </div>
       </div>
     </div>
   );
